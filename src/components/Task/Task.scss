@@ -1,0 +1,45 @@
+$success-color: #00CF91;
+$failure-color: #FF5252;
+.Task {
+  display: flex;
+  flex-direction: row;
+  width: 646px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid green;
+  padding: 16px;
+
+  input {
+    border:none;
+    font-size: 30px;
+    margin-left: 32px;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+}
+
+.TaskText {
+  padding: 0;
+  margin: 0;
+  margin-left: 32px;
+  font-size: 30px;
+  color: black;
+  text-decoration: none;
+}
+
+.Left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  // border: 1px solid red;
+}
+
+.CompletedText {
+  color: rgba(0,0,0,0.17);
+  text-decoration: line-through;
+}
+

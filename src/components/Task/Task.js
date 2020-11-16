@@ -4,6 +4,7 @@ import Icon from "../UI/Icon/Icon";
 import "./Task.scss";
 
 const Task = ({
+  taskType,
   addTask,
   taskName,
   completed,
@@ -17,61 +18,112 @@ const Task = ({
   let icon = null;
   let text = null;
 
-  if (addTask) {
-    icon = <Icon iconType="add" />;
-    text = (
-      <form
-        onSubmit={(e) => {
-          if (input !== "") {
-            submitHandler(e, input, false);
-            setInput("");
-          }
-        }}
-      >
-        <input
-          placeholder="Add Task"
-          onChange={(newText) => setInput(newText.target.value)}
-          value={input}
-        />
-      </form>
-    );
-  } else {
-    if (edit) {
+  switch(taskType){
+    case 'ADD_TASK':
+      icon = <Icon iconType="add" />;
+      text = (
+        <form
+          onSubmit={(e) => {
+            if (input !== "") {
+              submitHandler(e, input, false);
+              setInput("");
+            }
+          }}
+        >
+          <input
+            placeholder="Add Task"
+            onChange={(newText) => setInput(newText.target.value)}
+            value={input}
+          />
+        </form>
+      );
+      break;
+    case 'EDIT_TASK':
       icon = (
         <div onClick={deleteHandler}>
           <Icon iconType="delete" />
         </div>
       );
       text = (
-        <input
-          onChange={(newText) => setInput(newText.target.value)}
-          value={input}
-        />
-      );
-    } else {
-      text = completed ? (
-        <p className="TaskText CompletedText">{taskName}</p>
-      ) : (
+        // <input
+        //   onChange={(newText) => setInput(newText.target.value)}
+        //   value={input}
+        // />
         <p className="TaskText">{taskName}</p>
       );
+      break;
+    case "TASK":
       icon = (
         <div onClick={toggleCompleteHandler}>
           {completed ? (
-            <Icon iconType="complete"/>
+            <Icon iconType="complete" />
           ) : (
             <Icon iconType="incomplete" />
           )}
         </div>
       );
-    }
+      text = completed ? (
+        <p className="TaskText CompletedText">{taskName}</p>
+      ) : (
+        <p className="TaskText">{taskName}</p>
+      );
+      break;
   }
+
+
+  // if (addTask) {
+  //   icon = <Icon iconType="add" />;
+  //   text = (
+  //     <form
+  //       onSubmit={(e) => {
+  //         if (input !== "") {
+  //           submitHandler(e, input, false);
+  //           setInput("");
+  //         }
+  //       }}
+  //     >
+  //       <input
+  //         placeholder="Add Task"
+  //         onChange={(newText) => setInput(newText.target.value)}
+  //         value={input}
+  //       />
+  //     </form>
+  //   );
+  // } else {
+  //   if (edit) {
+  //     icon = (
+  //       <div onClick={deleteHandler}>
+  //         <Icon iconType="delete" />
+  //       </div>
+  //     );
+  //     text = (
+  //       <input
+  //         onChange={(newText) => setInput(newText.target.value)}
+  //         value={input}
+  //       />
+  //     );
+  //   } else {
+  //     text = completed ? (
+  //       <p className="TaskText CompletedText">{taskName}</p>
+  //     ) : (
+  //       <p className="TaskText">{taskName}</p>
+  //     );
+  //     icon = (
+  //       <div onClick={toggleCompleteHandler}>
+  //         {completed ? (
+  //           <Icon iconType="complete" />
+  //         ) : (
+  //           <Icon iconType="incomplete" />
+  //         )}
+  //       </div>
+  //     );
+  //   }
+  // }
 
   return (
     <div className="Task">
-      <div className="Left">
-        {icon}
-        {text}
-      </div>
+      {icon}
+      {text}
     </div>
   );
 };

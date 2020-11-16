@@ -32,7 +32,7 @@ class App extends Component {
     let newTasks = [...this.state.tasks];
     newTasks.splice(index, 1);
     let newEdit = this.state.edit;
-    if (newTasks.length == 0) {
+    if (newTasks.length === 0) {
      newEdit = !newEdit; 
     }
     this.setState({tasks: newTasks, edit: newEdit});    
@@ -40,14 +40,14 @@ class App extends Component {
 
 
   render() {
-    let tasks = this.state.tasks.map((task, index) => {
+    let tasks = this.state.tasks.sort((a,b) => (a.completed > b.completed) ? 1 : ((b.completed > a.completed) ? -1 : 0)).map((task, index) => {
       return <Task key={index} taskName={task.taskName} toggleCompleteHandler={() => this.toggleCompleteHandler(index)} completed={task.completed} taskType={this.state.edit ? "EDIT_TASK" : "TASK"} deleteHandler={()=> this.deleteTaskHandler(index)}/>
     });
     return (
       <div className="App">
         <div className="Header">
           <p className="HeaderText">Tasks:</p>
-          {tasks.length > 0 ? <img className="EditIcon" src={editIcon} onClick={this.editTaskHandler}/> :null}
+          {tasks.length > 0 ? <img alt="edit icon" className="EditIcon" src={editIcon} onClick={this.editTaskHandler}/> :null}
         </div>
         <Task taskType="ADD_TASK" submitHandler={this.addTaskHandler}/>
         {tasks}

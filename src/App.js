@@ -1,10 +1,7 @@
-import logo from "./logo.svg";
 import "./App.scss";
 import { Component } from "react";
 
 import Task from './components/Task/Task';
-import NewTask from './components/NewTask/NewTask';
-import Icon from './components/UI/Icon/Icon';
 import editIcon from './assets/icons/Edit.png';
 
 class App extends Component {
@@ -33,10 +30,7 @@ class App extends Component {
 
   deleteTaskHandler = (index) => {
     let newTasks = [...this.state.tasks];
-    console.log(newTasks[index])
     newTasks.splice(index, 1);
-    console.log("deleted " + index)
-    console.log(newTasks)
     let newEdit = this.state.edit;
     if (newTasks.length == 0) {
      newEdit = !newEdit; 

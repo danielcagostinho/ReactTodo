@@ -6,7 +6,7 @@ $failure-color: #FF5252;
   width: 646px;
   justify-content: start;
   align-items: center;
-  border: 1px solid green;
+  // border: 1px solid green;
   padding: 16px;
 
   input {
@@ -29,6 +29,7 @@ $failure-color: #FF5252;
   font-size: 30px;
   color: black;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 .Left {

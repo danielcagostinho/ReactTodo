@@ -3,16 +3,16 @@ $failure-color: #FF5252;
 .Task {
   display: flex;
   flex-direction: row;
-  width: 646px;
+  width: 311px;
   justify-content: flex-start;
   align-items: center;
   // border: 1px solid green;
-  padding: 16px;
+  padding: 8px;
 
   input {
     border:none;
-    font-size: 30px;
-    margin-left: 32px;
+    font-size: 16px;
+    margin-left: 16px;
     font-family: 'Quicksand', sans-serif;
   }
 
@@ -25,8 +25,8 @@ $failure-color: #FF5252;
 .TaskText {
   padding: 0;
   margin: 0;
-  margin-left: 32px;
-  font-size: 30px;
+  margin-left: 16px;
+  font-size: 16px;
   color: black;
   text-decoration: none;
   text-transform: capitalize;
@@ -42,5 +42,21 @@ $failure-color: #FF5252;
 .CompletedText {
   color: rgba(0,0,0,0.17);
   text-decoration: line-through;
+}
+
+@media (min-width: 641px) {
+  .Task {
+    width: 646px;
+    padding: 16px;
+
+    input {
+      font-size: 30px;
+      margin-left: 32px;
+    }
+  }
+  .TaskText {
+    margin-left: 32px;
+    font-size: 30px;
+  }
 }
 

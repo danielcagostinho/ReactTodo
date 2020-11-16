@@ -1,11 +1,12 @@
 .App {
-  width: 750px;
-  height: 1334px;
+  width: 100vw;
+  height: 100vh;
   // border: 1px solid blue;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -13,19 +14,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 
-  width: 646px;
-  height: 64px;
   margin: 0;
-  padding: 16px;
+  padding: 8px;
   margin-top: 40px;
   margin-bottom: 16px;
+  // border: 1px solid red;
 
-  // border: 1px solid blue;
 }
 
 .HeaderText {
-  font-size: 50px;
+  font-size: 26px;
   font-weight: bold;
   margin: 0;
   padding: 0;
@@ -33,7 +33,33 @@
 }
 
 .EditIcon {
-  width: 64px;
-  height: 64px;
+  width: 28px;
+  height: 28px;
   // border: 1px solid yellow;
+}
+
+.TaskContainer {
+  max-height: 65vh;
+  overflow-y: scroll;
+}
+
+@media (min-width: 641px) {
+  .EditIcon {
+    height: 52px;
+    width: 52px;
+  }
+
+  .HeaderText {
+    font-size: 50px;
+  }
+
+  .Header {
+    padding: 16px;
+    margin-top: 88px;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 961px) {
+
 }

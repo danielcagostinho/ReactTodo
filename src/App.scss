@@ -41,7 +41,14 @@
 .TaskContainer {
   max-height: 65vh;
   overflow-y: scroll;
+  scrollbar-width: none;
 }
+
+.TaskContainer::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
 
 @media (min-width: 641px) {
   .EditIcon {
@@ -58,8 +65,4 @@
     margin-top: 88px;
     margin-bottom: 16px;
   }
-}
-
-@media (min-width: 961px) {
-
 }

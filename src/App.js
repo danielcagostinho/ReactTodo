@@ -4,6 +4,7 @@ import { Component } from "react";
 import Task from "./components/Task/Task";
 import editIcon from "./assets/icons/Edit.png";
 import Footer from "./components/Footer/Footer";
+import Button from './components/UI/Button/Button';
 
 class App extends Component {
   state = {
@@ -18,7 +19,7 @@ class App extends Component {
     this.setState({ tasks: newTasks });
   };
 
-  editTaskHandler = () => {
+  toggleEditHandler = () => {
     this.setState({ edit: !this.state.edit });
   };
 
@@ -40,9 +41,9 @@ class App extends Component {
 
   render() {
     let tasks = this.state.tasks
-      .sort((a, b) =>
-        a.completed > b.completed ? 1 : b.completed > a.completed ? -1 : 0
-      )
+      // .sort((a, b) =>
+      //   a.completed > b.completed ? 1 : b.completed > a.completed ? -1 : 0
+      // )
       .map((task, index) => {
         return (
           <Task
@@ -61,11 +62,12 @@ class App extends Component {
           <div className="Header">
             <p className="HeaderText">Tasks:</p>
             {tasks.length > 0 ? (
+              this.state.edit ? <Button clickHandler={this.toggleEditHandler}/> :
               <img
                 alt="edit icon"
                 className="EditIcon"
                 src={editIcon}
-                onClick={this.editTaskHandler}
+                onClick={this.toggleEditHandler}
               />
             ) : null}
           </div>

@@ -5,11 +5,9 @@ import "./Task.scss";
 
 const Task = ({
   taskType,
-  addTask,
   taskName,
   completed,
   toggleCompleteHandler,
-  edit,
   submitHandler,
   deleteHandler,
 }) => {
@@ -44,12 +42,14 @@ const Task = ({
           <Icon iconType="delete" />
         </div>
       );
+      console.log(input)
       text = (
         // <input
         //   onChange={(newText) => setInput(newText.target.value)}
         //   value={input}
         // />
-        <p className="TaskText">{taskName}</p>
+        
+        <p className="task__label">{taskName}</p>
       );
       break;
     case "TASK":
@@ -63,14 +63,14 @@ const Task = ({
         </div>
       );
       text = completed ? (
-        <p className="TaskText CompletedText">{taskName}</p>
+        <p className="task__label__completed">{taskName}</p>
       ) : (
-        <p className="TaskText">{taskName}</p>
+        <p className="task__label">{taskName}</p>
       );
       break;
   }
   return (
-    <div className="Task">
+    <div className="task">
       {icon}
       {text}
     </div>

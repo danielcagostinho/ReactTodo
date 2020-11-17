@@ -1,51 +1,47 @@
-$success-color: #00CF91;
-$failure-color: #FF5252;
-.Task {
+.task {
   display: flex;
   flex-direction: row;
   width: 311px;
   justify-content: flex-start;
   align-items: center;
-  // border: 1px solid green;
   padding: 8px;
 
+  #{&}__label {
+    padding: 0;
+    margin: 0;
+    margin-left: 16px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
+  #{&}__label__completed {
+    padding: 0;
+    margin: 0;
+    margin-left: 16px;
+    font-size: 16px;
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.17);
+    text-decoration: line-through;
+  }
+  
   input {
-    border:none;
+    border: none;
     font-size: 16px;
     margin-left: 16px;
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
   }
 
   input:focus {
     outline: none;
   }
-
 }
 
-.TaskText {
-  padding: 0;
-  margin: 0;
-  margin-left: 16px;
-  font-size: 16px;
-  color: black;
-  text-decoration: none;
-  text-transform: capitalize;
-}
-
-.Left {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  // border: 1px solid red;
-}
-
-.CompletedText {
-  color: rgba(0,0,0,0.17);
-  text-decoration: line-through;
-}
 
 @media (min-width: 641px) {
-  .Task {
+  .task {
     width: 646px;
     padding: 16px;
 
@@ -53,10 +49,15 @@ $failure-color: #FF5252;
       font-size: 30px;
       margin-left: 32px;
     }
-  }
-  .TaskText {
-    margin-left: 32px;
-    font-size: 30px;
+
+    #{&}__label {
+      margin-left: 32px;
+      font-size: 30px;
+    }
+
+    #{&}__label__completed {
+      margin-left: 32px;
+      font-size: 30px;
+    }
   }
 }
-

@@ -5,12 +5,17 @@
   display: flex;
   justify-self: center;
   align-items: center;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }
 
 .Incomplete {
-  border: 1px solid rgba(0,0,0,0.17);
+  border: 1px solid rgba(0, 0, 0, 0.17);
   border-radius: 3px;
-  background-color: white;
+  background-color: #f6f6f8;
 }
 
 @media (min-width: 641px) {
@@ -18,12 +23,16 @@
     width: 48px;
     height: 48px;
     border-radius: 6px;
+
+    img {
+      width: 48px;
+      height: 48px;
+    }
   }
 
   .Incomplete {
-    border: 1px solid rgba(0,0,0,0.17);
+    border: 1px solid rgba(0, 0, 0, 0.17);
     border-radius: 6px;
-    background-color: white;
+    background-color: #f6f6f8;
   }
-
 }

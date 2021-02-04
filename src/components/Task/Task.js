@@ -42,14 +42,13 @@ const Task = ({
           <Icon iconType="delete" />
         </div>
       );
-      console.log(input)
       text = (
-        // <input
-        //   onChange={(newText) => setInput(newText.target.value)}
-        //   value={input}
-        // />
+        <input
+          onChange={(newText) => setInput(newText.target.value)}
+          value={input}
+        />
         
-        <p className="task__label">{taskName}</p>
+        // <p className="task__label">{taskName}</p>
       );
       break;
     case "TASK":
